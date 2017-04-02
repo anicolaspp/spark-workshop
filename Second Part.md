@@ -25,5 +25,5 @@
 - Logic errors are (usually) translated into `types` errors.
 
 
-# Spark Computation Model and Resilient Distributed Datasets (`RDD`s)
+# Spark Computation Model & Resilient Distributed Datasets (`RDD`s)
 
