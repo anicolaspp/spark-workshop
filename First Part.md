@@ -1,4 +1,4 @@
-# Installing the Required Toolset
+# Installing the Required Toolset (1 Hour)
 
 ## Installing Scala and Sbt
 
