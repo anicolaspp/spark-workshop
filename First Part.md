@@ -7,7 +7,7 @@ Let's make sure we have `java` first
 brew cask install java
 ```
 
-The we install the `Scala Build Tool (sbt)`
+Then we install the `Scala Build Tool (sbt)`
 
 ```
 brew install sbt
