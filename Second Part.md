@@ -25,5 +25,5 @@
 - Logic errors are (usually) translated into `types` errors.
 
 
-# Computation Model & Resilient Distributed Datasets (`RDD`s)
+# Computational Model & Resilient Distributed Datasets (`RDD`s)
 
