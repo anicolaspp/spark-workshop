@@ -18,3 +18,13 @@ Now we download latest `Spark` source code.
 ```
 git clone git://github.com/apache/spark.git
 ```
+
+```
+cd spark
+```
+
+Now, let's build `Spark`
+
+```
+./build/sbt -Pyarn -Phadoop-2.3 package
+```
