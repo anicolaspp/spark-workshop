@@ -6,7 +6,7 @@
 - Implemented in Scala
 - Embeded in Scala as a host language
 
-[](/spark-the-ultimate-scala-collections-by-martin-odersky-5-638.jpg)
+[A](spark-the-ultimate-scala-collections-by-martin-odersky-5-638.jpg)
 
 
 # Spark Computation Model and Resilient Distributed Datasets (`RDD`s)
