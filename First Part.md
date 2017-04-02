@@ -25,6 +25,19 @@ cd spark
 
 Now, let's build `Spark`
 
+The official build tool for `Spark` is `Maven`, but `sbt` allows a faster development cycle.
+
 ```
 ./build/sbt -Pyarn -Phadoop-2.3 package
 ```
+
+If we want to build it using `Maven`, we can run this command.
+
+```
+./build/mvn -Pyarn -Phadoop-2.4 -Dhadoop.version=2.4.0 -DskipTests clean package
+```
+
+This link is the full page for creating different distributions.
+
+[Building Spark, Official Site](http://spark.apache.org/docs/latest/building-spark.html)
+
