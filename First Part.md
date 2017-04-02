@@ -41,3 +41,5 @@ This link is the full page for creating different distributions.
 
 [Building Spark, Official Site](http://spark.apache.org/docs/latest/building-spark.html)
 
+Please notice that for productions we might want to download the binaries directly instead of building it ourselves!
+
