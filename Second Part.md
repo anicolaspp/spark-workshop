@@ -173,3 +173,13 @@ lordRDD.count()
 
 res6: Long = 5000
 ```
+
+### Reduce
+
+*Reduce* will combine everything single pair on the *RDD* in order to generate a single, final value.
+
+```
+lordRDD.map(_.length).reduce(_ + _)
+res8: Int = 20000
+```
+*The word Lord has 4 chars and there is 5000 of them => 20000*
