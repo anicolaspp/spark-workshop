@@ -74,3 +74,30 @@ val lineLengthsRDD = linesRDD.map(line => line.length)
 
 counts.foreach(println)
 ```
+
+### FlatMap
+
+*flatMap* is another functional transformation, but a little more interesting
+
+```
+def flatMap[A, B, M[_]](ma: M[A], f: A => M[B]): M[B]
+```
+
+Let's get some use for it. 
+
+We can use `flatMap` to extract *each* word from *line*
+
+```
+val wordsRDD = linesRDD.flatMap(_.split(" "))
+```
+
+```
+res5: org.apache.spark.rdd.RDD[String] = MapPartitionsRDD[3] at flatMap at <console>:27
+```
+
+Again, nothing is executed. Let's run a *foreach* to print some of them out.
+
+```
+wordsRDD.take(20).foreach(pritnln)
+```
+
