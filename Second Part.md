@@ -24,7 +24,7 @@
 - Interactions are given in terms of `types`.
 - Logic errors are (usually) translated into `types` errors.
 
-# A note on Scala Syntax
+# A Note on Scala Syntax
 
 In we can take some shortcuts to make our programs simpler. Syntactically, Scala has some interesting options. 
 
