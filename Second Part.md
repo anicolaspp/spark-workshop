@@ -117,4 +117,4 @@ val lordRDD = wordsRDD.filter(word => word == "Lord")
 lordRDD.count()
 
 res6: Long = 5000
-``
+```
