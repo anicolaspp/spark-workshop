@@ -244,3 +244,63 @@ The same happens with **saveAsObjectFile** but this time, the `RDD` is serialize
 ```
 words.saveAsObjectFile("/Users/anicolaspp/out_dir.txt")
 ```
+
+---------------------------------------------------------
+
+# Working with *PairRDD*
+
+Many tutorials (and people) talk about *PairRDD* as an special kind of *RDD*, but in *Scala* tuples are just a other type. 
+
+Let's create a simple *PairRDD*
+
+```
+val pairs = sc.parallelize((1 to 1000).map(x => (x, x.toString.length)))
+
+pairs.forach(println)
+```
+
+What about if we want all number with the same *length*?
+
+```
+def desiredLength(n: Int, pairs: RDD[(Int, Int)]): RDD[Int] = pairs.filter(_._2 == n).map(_._1)
+```
+
+and then we can use this function
+
+```
+val numberOfLength_3 = desiredLength(2, pairs)
+
+numberOfLength_3.foreach(println)
+```
+
+Spark provides some functions to work specifically with *PairRDD*
+
+Let's suppose now we want to know how many number of a specific length we got. 
+
+```
+desiredLength(2, pairs).reduce(_ + _)
+```
+
+another way could be 
+
+```
+def totalOfLength(n: Int, pairs: RDD[(Int, Int)]) = 
+  pairs
+    .map { case (number, length) => (length, number)}
+    .reduceByKey(_ + _)
+    .filter { case (length, _) => length == n }
+    .map(_._2)
+```
+
+```
+totalOfLength(2, pairs).foreach(println)
+
+4905
+```
+We can easily validate this with
+
+``` pure scala
+(10 to 99).sum
+
+4905
+```
