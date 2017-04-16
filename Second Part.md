@@ -55,7 +55,29 @@ val puppiesAndDad = dogs.filter(dog => dog.age < 2).map(puppie => (puppie, puppi
 val puppiesAndDad: List[(Dog, Dog)] = dogs.filter(_.age < 2).map((_, _.parent))  
 ```
 
+### Omittion Args
 
+Sometimes, we don't need to define args just to pass them to other functions.
+
+```
+def println[A](f: A => Unit): Unit = ...
+
+println(5)
+println(Dog(...))
+
+...
+
+val puppies: List[Dog] = ....
+
+puppies.foreach(puppie => println(puppie) 
+
+puppies.foreach(println)
+```
+
+### *For* should be used for iterating. We will go back to this later on.
+
+
+---------------------------------------------------------
 
 # Spark Context, Interacting with the Outside World
 
