@@ -226,3 +226,21 @@ linesRDD.collect()
 res11: Array[String] = Array("     __________________________________________________________________", "", "           Title: The King James Version of the Holy Bible", "      Creator(s): Anonymous", "          Rights: Public Domain", "   CCEL Subjects: All; Bible; Old Testament; New Testament; Apocrypha", "      LC Call no: BS185", "     LC Subjects:", "", "                  The Bible", "", "                  Modern texts and versions", "", "                  English", "     __________________________________________________________________", "", Holy Bible, "", "                               King James Version", "     __________________________________________________________________", "", "   TO THE MOST HIGH AND MIGHTY PRINCE JAMES, BY THE GRACE OF GOD,", "", "", "   KING OF GREAT...
 
 ```
+**DO NOT perform *Collect* ever in production, it will bring your cluster down!!!**
+
+### saveAsTextFile
+
+*saveAsTextFile* will save your RDD to the file system. 
+
+```
+words.saveAsTextFile("/Users/anicolaspp/out_dir")
+```
+
+This operation will create a folder called *out_dir* and save the context of each partition on it. 
+The folder is **immutable**. Spark knows that other operation saved data there so it will not allow you write on it again. 
+
+The same happens with **saveAsObjectFile** but this time, the `RDD` is serialized and stored as an object. 
+
+```
+words.saveAsObjectFile("/Users/anicolaspp/out_dir.txt")
+```
