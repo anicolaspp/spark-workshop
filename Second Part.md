@@ -58,7 +58,7 @@ res0: Long = 131843
 
 ### Map
 
-*map* is a functional transformation.
+*map* is a functional transformater.
 
 ```
 def map[A, B, M[_]](ma: M[A], f: A => B): M[B]
