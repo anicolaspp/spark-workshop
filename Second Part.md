@@ -24,6 +24,39 @@
 - Interactions are given in terms of `types`.
 - Logic errors are (usually) translated into `types` errors.
 
+# A note on Scala Syntax
+
+In we can take some shortcuts to make our programs simpler. Syntactically, Scala has some interesting options. 
+
+```
+case class Dog(name: String, age: Int, parent: Dog)
+
+val dogs: List[Dog] = ...
+```
+
+This is the *Java* way, which is valid in *Scala*
+
+```
+val puppies = dogs.filter(dog => god.age < 2)
+```
+However, we could write it in a compressed expression. 
+
+```
+val puppies = dogs.filter(_.age < 2)
+```
+
+### Another Example
+
+```
+val puppiesAndDad = dogs.filter(dog => dog.age < 2).map(puppie => (puppie, puppie.parent))
+```
+
+```
+val puppiesAndDad: List[(Dog, Dog)] = dogs.filter(_.age < 2).map((_, _.parent))  
+```
+
+
+
 # Spark Context, Interacting with the Outside World
 
 We normally get a *SparkContext* (`sc`) when we open the shell. The `sc` has methods to interact with the outside world.
