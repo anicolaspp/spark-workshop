@@ -183,3 +183,28 @@ lordRDD.map(_.length).reduce(_ + _)
 res8: Int = 20000
 ```
 *The word Lord has 4 chars and there is 5000 of them => 20000*
+
+*Reduce* cannot be used if the `RDD` is *Empty*
+
+```
+val empty = sc.emptyRDD[Int]
+
+empty.reduce(_+_)
+
+java.lang.UnsupportedOperationException: empty collection
+```
+
+### Fold
+
+*Fold* is the same as *Reduce*, with the same performance, but it uses a `Monoid[A]` so we can handle emptiness.
+
+```
+empty.fold(0)(_+_)
+res10: Int = 0
+```
+
+*Fold* is defined as follows.
+
+```
+def fold[A](zero: A)(op: (A, A) => A): A 
+```
