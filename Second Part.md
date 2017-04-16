@@ -304,3 +304,57 @@ We can easily validate this with pure *Scala*
 
 4905
 ```
+
+We can generalize *totalOfLength* !
+
+```
+trait Semigroup[A] {
+  def app(x: A, y: A): A
+}
+
+implicit val intSemi = new Semigroup[Int] {
+  def app(x: Int, y: Int) = x + y
+}
+
+
+implicit val strSemi = new Semigroup[String] {
+  def app(x: String, y: String) = (x.length + y.length).toString
+}
+
+def totalOfLength[A](n: Int, pairs: RDD[(A, Int)])(implicit sg: SemiGroup[A]) = 
+  pairs
+    .map { case (v, length) => (length, v)}
+    .reduceByKey(sg.app)
+    .filter { case (length, _) => length == n }
+    .map(_._2)
+```
+
+---------------------------------------------------------
+
+# Word Count
+
+```
+val sorted = 
+  linesRDD
+    .flatMap(_.split(" "))
+    .map(w => (w, 1))
+    .reduceByKey(_ + _)
+    .map {case (x, y) => (y, x)}
+    .sortByKey(false)
+```
+There is *sortBy* can also be used, removing `.map {case (x, y) => (y, x)}`
+
+```
+al sorted = 
+  linesRDD
+    .flatMap(_.split(" "))
+     .map(w => (w, 1))
+     .reduceByKey(_ + _)
+     .sortBy(_._2, false)
+```
+Things to remember: 
+
+- *sortBy* has higher network traffic.
+- Behind the scence, *sortBy* also do a *map* `(f(x), x)`.
+- *sortByKey* partitioned RDD can be useful for downstream processing.
+- don't use them for selecting *top*, *takeTop*.
