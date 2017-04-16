@@ -24,6 +24,40 @@
 - Interactions are given in terms of `types`.
 - Logic errors are (usually) translated into `types` errors.
 
+# Spark Context, Interacting with the Outside World
+
+We normally get a *SparkContext* (`sc`) when we open the shell. The `sc` has methods to interact with the outside world.
+
+```
+val linesRDD = sc.textFile("/Users/anicolaspp/b.txt")
+```
+Running this `.textFile` operation does nothing, it just makes a transformation that will be exucuted later on. 
+
+Let's do something with our *lines*.
+
+```
+linesRDD.count()
+```
+
+```
+res0: Long = 131843   
+```
 
 # Computational Model & Resilient Distributed Datasets (`RDD`s)
 
+- map
+- mapPartitions
+- flatMap
+- filter
+- reduce
+- fold
+- aggregate
+- union
+- intersaction
+- distinct 
+
+### Map
+
+```
+
+```
