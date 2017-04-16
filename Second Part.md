@@ -297,9 +297,9 @@ totalOfLength(2, pairs).foreach(println)
 
 4905
 ```
-We can easily validate this with
+We can easily validate this with pure *Scala*
 
-``` pure scala
+``` 
 (10 to 99).sum
 
 4905
