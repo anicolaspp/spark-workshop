@@ -63,3 +63,14 @@ res0: Long = 131843
 ```
 def map[A, B, M[_]](ma: M[A], f: A => B): M[B]
 ```
+***Monads*** have `map` and in Scala collection are *Monads*.
+
+`RDD`s are collections, so they have `map`!
+
+```
+val linesRDD = sc.textFile("/Users/anicolaspp/b.txt")
+
+val lineLengthsRDD = linesRDD.map(line => line.length)
+
+counts.foreach(println)
+```
