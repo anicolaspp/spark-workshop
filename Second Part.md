@@ -101,3 +101,20 @@ Again, nothing is executed. Let's run a *foreach* to print some of them out.
 wordsRDD.take(20).foreach(pritnln)
 ```
 
+### Filter
+
+In the same way we used `map` and `flatMap`, we can use *filter*
+
+```
+def filter[A, M[_]](ma: M[A], f: A => Boolean): M[A]
+```
+
+Let's use it now.
+
+```
+val lordRDD = wordsRDD.filter(word => word == "Lord")
+
+lordRDD.count()
+
+res6: Long = 5000
+``
