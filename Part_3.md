@@ -25,7 +25,9 @@ libraryDependencies += "org.apache.spark" % "spark-core_2.12" % "2.0.1"
 **app.scala**
 
 ```
-package com.nico.spark-demo
+package com.nico.sparkdemo
+
+import org.apache.spark.{SparkConf, SparkContext}
 
 object app {
   def main(args: Array[String]) {
