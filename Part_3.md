@@ -1,5 +1,5 @@
 
-# Creating Spark Applications
+# Creating Spark Applications (1 Hour)
 
 In the *shell* everything is nice, right? But most of the time we want applications we can run multiple times. We need applications that can be deployed, and executed in different environments. 
 
@@ -55,8 +55,8 @@ object app {
 `sbt compile package`
 
 ```
-./spark-submit --class app \
-                --jar <ourjar>.jar
+./bin/spark-submit --class "com.nico.sparkdemo.app" \
+          .../simple_app/target/scala-2.11/spark-demo_2.11-1.0.jar
 ```
 
 # Some *Best* Practices we use
@@ -64,3 +64,11 @@ object app {
 - build a runner with all the configuration need (log, args).
 - create an app that the runner can execute.
 - test your application (unit tests and integration tests).
+
+## Reading Command Line Arguments
+
+## Configuring Logging
+
+## Functional (Monadic) Logging? (maybe not for everyone)
+
+## Running an App
