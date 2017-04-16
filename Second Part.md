@@ -110,6 +110,13 @@ res0: Long = 131843
 - union
 - intersaction
 - distinct 
+- collect
+- count
+- first
+- take
+- takeSample
+- saveAsTextFile
+
 
 ### Map
 
@@ -207,4 +214,15 @@ res10: Int = 0
 
 ```
 def fold[A](zero: A)(op: (A, A) => A): A 
+```
+
+### Collect
+
+*Collect* is a very dangerous operation. It brings all the data to the master node. This could could cause the application to crash given that there might be not enough memory available in the master node for the entire dataset.
+
+```
+linesRDD.collect()
+
+res11: Array[String] = Array("     __________________________________________________________________", "", "           Title: The King James Version of the Holy Bible", "      Creator(s): Anonymous", "          Rights: Public Domain", "   CCEL Subjects: All; Bible; Old Testament; New Testament; Apocrypha", "      LC Call no: BS185", "     LC Subjects:", "", "                  The Bible", "", "                  Modern texts and versions", "", "                  English", "     __________________________________________________________________", "", Holy Bible, "", "                               King James Version", "     __________________________________________________________________", "", "   TO THE MOST HIGH AND MIGHTY PRINCE JAMES, BY THE GRACE OF GOD,", "", "", "   KING OF GREAT...
+
 ```
