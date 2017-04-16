@@ -357,4 +357,4 @@ Things to remember:
 - *sortBy* has higher network traffic.
 - Behind the scence, *sortBy* also do a *map* `(f(x), x)`.
 - *sortByKey* partitioned RDD can be useful for downstream processing.
-- don't use them for selecting *top*, *takeTop*.
+- don't use them for selecting the top elements, use *top*, *takeTop* instead.
