@@ -35,6 +35,17 @@ sql("SELECT * FROM table_name")
 
 [Data Set](sql-dataset.md)
 
+### Intersting Questions
+- How many flights cancelled?
+- How many flights delayed?
+- What is the average waiting time?
+- What is airline with more cancelled flights?
+- What is the best airline?
+- What is the two destinations with more flights cancelled between them?
+- What is the more delayed aircraft? From what airline?
+- What is avg time that an airplane spends from landed until it gets to the terminal?
+...
+
 ### Using Spark Packages / Libs
 
 ## Related Blog Posts
