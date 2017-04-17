@@ -33,7 +33,7 @@ sql("SELECT * FROM table_name")
 
 ## Let's play!
 
-![alt tag](sql-dataset.md)
+[Data Set](sql-dataset.md)
 
 ### Using Spark Packages / Libs
 
