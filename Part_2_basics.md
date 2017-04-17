@@ -26,7 +26,7 @@
 
 # A Note on Scala Syntax
 
-In we can take some shortcuts to make our programs simpler. Syntactically, Scala has some interesting options. 
+In *Scala* we can take some shortcuts to make our programs simpler. Syntactically, Scala has some interesting options. 
 
 ```
 case class Dog(name: String, age: Int, parent: Dog)
