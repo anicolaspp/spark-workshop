@@ -359,7 +359,7 @@ val sorted =
 Another option is *sortBy* which removes `.map {case (x, y) => (y, x)}`
 
 ```
-al sorted = 
+val sorted = 
   linesRDD
     .flatMap(_.split(" "))
      .map(w => (w, 1))
