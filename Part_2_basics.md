@@ -111,20 +111,23 @@ res0: Long = 131843
 
 ![alt tag](Transformation-DAG.jpg)
 
+### Some Transformations
 - map
 - mapPartitions
 - flatMap
 - filter
-- reduce
-- fold
-- aggregate
+- take
 - union
 - intersaction
-- distinct 
+- distinct
+
+### Some Actions
+- reduce
+- fold
+- aggregate 
 - collect
 - count
 - first
-- take
 - takeSample
 - saveAsTextFile
 
