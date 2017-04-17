@@ -356,7 +356,7 @@ val sorted =
     .map {case (x, y) => (y, x)}
     .sortByKey(false)
 ```
-There is *sortBy* can also be used, removing `.map {case (x, y) => (y, x)}`
+Another option is *sortBy* which removes `.map {case (x, y) => (y, x)}`
 
 ```
 al sorted = 
