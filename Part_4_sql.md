@@ -30,6 +30,11 @@ sql("SELECT * FROM table_name")
 
 ## Native CSV, JSON, and XML Support
 
+
+## Let's play!
+
+![alt tag](sql-dataset.md)
+
 ### Using Spark Packages / Libs
 
 ## Related Blog Posts
