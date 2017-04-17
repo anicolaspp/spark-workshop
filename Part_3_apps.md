@@ -59,6 +59,9 @@ object app {
           .../simple_app/target/scala-2.11/spark-demo_2.11-1.0.jar
 ```
 
+
+[The complete example](https://github.com/anicolaspp/spark-workshop/tree/master/simple_app)
+
 # Some *Best* Practices we use
 
 - build a runner with all the configuration need (log, args).
