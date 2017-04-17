@@ -69,7 +69,7 @@ println(Dog(...))
 
 val puppies: List[Dog] = ....
 
-puppies.foreach(puppie => println(puppie) 
+puppies.foreach(puppie => println(puppie)) 
 
 puppies.foreach(println)
 ```
