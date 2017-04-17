@@ -131,6 +131,7 @@ res0: Long = 131843
 - takeSample
 - saveAsTextFile
 
+![alt tag](ex_graph.png)
 
 ### Map
 
