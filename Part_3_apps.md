@@ -65,9 +65,101 @@ object app {
 - create an app that the runner can execute.
 - test your application (unit tests and integration tests).
 
-## Reading Command Line Arguments
+### SparkApp
+
+```
+/**
+ * Base class for Spark applications
+ */
+abstract class SparkApp extends DefaultInitializer {
+  def name: String
+ 
+ def execute(implicit sc: SparkContext) : Unit
+}
+
+trait SparkInitializer {
+  /**
+   * Add any needed Spark configuration prior to initializing SparkContext.
+   * Once the SparkContext is created, its configuration is immutable.
+   */
+  def configureSpark(sparkConfig: SparkConf) : Unit
+
+  def initializeSpark(sc: SparkContext) : Unit
+}
+```
+
+### SparkAppRunner
+
+```
+trait SparkAppRunner {
+  
+  /**
+   * Run Spark app
+   */
+  def executeWithSpark(app: SparkApp): Unit
+
+  private def shutdown(ex: Option[Throwable] = None)(implicit sc: SparkContext): Unit
+
+  /**
+   * Configure, create, and initialize a SparkContext
+   */
+  private def initSparkContext(app: SparkApp): SparkContext
+
+  /**
+   * Execute block if app mixes in the SparkInitializer trait
+   */
+  private def ifInitializer(app: SparkApp, body: (SparkInitializer) => Unit): Unit
+}
+```
+
+### Main Class
+
+```
+object MyApplication extends SparkAppRunner
+  with ArgParser {
+
+  def main(args: Array[String]): Unit = {
+    val config = argParser.parse(args, TPAppCmdLineConfig()) match {
+      case Some(config) => config
+      case None         => sys.exit(1)
+    }
+
+    val app = SomeApp(config)
+
+    executeWithSpark(app)
+  }
+}
+
+```
 
 ## Configuring Logging
+
+Spark provides a logger that can be used to *log* what the application is doing.
+
+```
+lazy val logger = org.slf4j.LoggerFactory.getLogger(getClass)
+```
+
+Using the `logger` should be the same as in any other application you have ever written. 
+
+```
+logger.debug("HELLO LOGGER")
+```
+
+The problem comes when we try to use the `logger` in a distributed fashion. 
+
+the `Logger` class is not serializable which means Sparks is not able the send the instance of the object over the network. 
+
+Lern more about the problem here [How to Log in Apache Spark](https://medium.com/hacker-daily/how-to-log-in-apache-spark-f4204fad78a)
+
+A simple solution we use:
+
+```
+trait Logging {
+  @transient lazy val logger = org.slf4j.LoggerFactory.getLogger(getClass)
+}
+
+```
 
 ## Functional (Monadic) Logging? (maybe not for everyone)
 
