@@ -37,7 +37,7 @@ val dogs: List[Dog] = ...
 This is the *Java* way, which is valid in *Scala*
 
 ```
-val puppies = dogs.filter(dog => god.age < 2)
+val puppies = dogs.filter(dog => dog.age < 2)
 ```
 However, we could write it in a compressed expression. 
 
