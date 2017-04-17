@@ -74,7 +74,7 @@ puppies.foreach(puppie => println(puppie))
 puppies.foreach(println)
 ```
 
-### *For* should be used for iterating. We will go back to this later on.
+### *For* should NOT be used for iterating. We will go back to this later on.
 
 
 ---------------------------------------------------------
