@@ -109,7 +109,7 @@ res0: Long = 131843
 
 ## Transformations are Lazy
 
-
+![alt tag](Transformation-DAG.jpg)
 
 - map
 - mapPartitions
