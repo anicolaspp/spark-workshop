@@ -161,6 +161,14 @@ trait Logging {
 
 ```
 
+Now we can mixin the `Logging` *trait* to get access to the logger object.
+
+This might not be the better way to do loggin (in general). Some of us prefer a more *functional* approach to the problem. Scala offers the right tools to solve this problem, once again, using **Monad**s. 
+
+For more information how to use the *Monad Writer* look at this presentation from the **Scala Workshop, Jan, 2017** [Monadic Loggin](https://docs.google.com/presentation/d/1DkoH12dbEKuu2ZcikAavBsEZ3HzKcJrypvPKyLP09D8/edit?usp=sharing)
+
 ## Functional (Monadic) Logging? (maybe not for everyone)
+
+[How to Log in Apache Spark, a Functional Apporach](https://medium.com/hacker-daily/how-to-log-in-apache-spark-a-functional-approach-e48ffbbd935b)
 
 ## Running an App
