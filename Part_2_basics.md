@@ -98,7 +98,18 @@ linesRDD.count()
 res0: Long = 131843   
 ```
 
+## Creating `RDD`s
+
+- RDD are created from any kind of sources (Text Files, HDFS, Raw Sockets, AWS S3, Azure Blob Storage, Cassandra, etc...)
+- RDD are lazy when calling Transformations on them.
+- RDD are represented by Spark as DAG (recomputation)
+
+
 # Computational Model & Resilient Distributed Datasets (`RDD`s)
+
+## Transformations are Lazy
+
+
 
 - map
 - mapPartitions
