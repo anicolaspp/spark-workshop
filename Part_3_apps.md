@@ -172,3 +172,5 @@ For more information how to use the *Monad Writer* look at this presentation fro
 [How to Log in Apache Spark, a Functional Apporach](https://medium.com/hacker-daily/how-to-log-in-apache-spark-a-functional-approach-e48ffbbd935b)
 
 ## Running an App
+
+[A running application](https://github.com/anicolaspp/spark-workshop/tree/master/complex_app)
