@@ -205,7 +205,7 @@ res8: Int = 20000
 ```
 *The word Lord has 4 chars and there is 5000 of them => 20000*
 
-*Reduce* cannot be used if the `RDD` is *Empty*
+*Reduce* cannot be used if the `RDD` is NOT *Empty*
 
 ```
 val empty = sc.emptyRDD[Int]
