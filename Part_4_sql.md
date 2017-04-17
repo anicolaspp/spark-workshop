@@ -5,9 +5,32 @@
 
 ## Interoperability with `RDD`s
 
-## Native CSV, JSON, and XML Support
+Given an `RDD` we can create a `DataFrame`.
+
+- `DataFrame`s have structure / shema as any `SQL` table. 
+- `DataFrame`s can be queried using pure `SQL`.
+- `DataFrame`s can be queried using *Spark SQL DLS*.
+
+
+```
+FROM RDD TO DATAFRAME CODE GOES HERE...
+```
 
 ## Using `DataFrame`s and `DataSet`s
+
+```
+df.printSchema()
+
+df.select(....)
+
+df.registerTempTable("table_name")
+
+sql("SELECT * FROM table_name")
+```
+
+## Native CSV, JSON, and XML Support
+
+### Using Spark Packages / Libs
 
 ## Related Blog Posts
 
