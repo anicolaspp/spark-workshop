@@ -25,8 +25,9 @@
 - Logic errors are (usually) translated into `types` errors.
 
 # A Note on Scala Syntax
+Go to your `$SPARK_HOME` and type `./bin/spark-shell` so you can follow along.
 
-In we can take some shortcuts to make our programs simpler. Syntactically, Scala has some interesting options. 
+In *Scala* we can take some shortcuts to make our programs simpler. Syntactically, Scala has some interesting options. 
 
 ```
 case class Dog(name: String, age: Int, parent: Dog)
@@ -37,7 +38,7 @@ val dogs: List[Dog] = ...
 This is the *Java* way, which is valid in *Scala*
 
 ```
-val puppies = dogs.filter(dog => god.age < 2)
+val puppies = dogs.filter(dog => dog.age < 2)
 ```
 However, we could write it in a compressed expression. 
 
@@ -69,12 +70,12 @@ println(Dog(...))
 
 val puppies: List[Dog] = ....
 
-puppies.foreach(puppie => println(puppie) 
+puppies.foreach(puppie => println(puppie)) 
 
 puppies.foreach(println)
 ```
 
-### *For* should be used for iterating. We will go back to this later on.
+### *For* should NOT be used for iterating. We will go back to this later on.
 
 
 ---------------------------------------------------------
@@ -98,25 +99,40 @@ linesRDD.count()
 res0: Long = 131843   
 ```
 
+## Creating `RDD`s
+
+- RDD are created from any kind of sources (Text Files, HDFS, Raw Sockets, AWS S3, Azure Blob Storage, Cassandra, etc...)
+- RDD are lazy when calling Transformations on them.
+- RDD are represented by Spark as DAG (recomputation)
+
+
 # Computational Model & Resilient Distributed Datasets (`RDD`s)
 
+## Transformations are Lazy
+
+![alt tag](Transformation-DAG.jpg)
+
+### Some Transformations
 - map
 - mapPartitions
 - flatMap
 - filter
-- reduce
-- fold
-- aggregate
+- take
 - union
 - intersaction
-- distinct 
+- distinct
+
+### Some Actions
+- reduce
+- fold
+- aggregate 
 - collect
 - count
 - first
-- take
 - takeSample
 - saveAsTextFile
 
+![alt tag](ex_graph.png)
 
 ### Map
 
@@ -134,7 +150,7 @@ val linesRDD = sc.textFile("/Users/anicolaspp/b.txt")
 
 val lineLengthsRDD = linesRDD.map(line => line.length)
 
-counts.foreach(println)
+lineLengthsRDD.foreach(println)
 ```
 
 ### FlatMap
@@ -191,7 +207,7 @@ res8: Int = 20000
 ```
 *The word Lord has 4 chars and there is 5000 of them => 20000*
 
-*Reduce* cannot be used if the `RDD` is *Empty*
+*Reduce* cannot be used if the `RDD` is NOT *Empty*
 
 ```
 val empty = sc.emptyRDD[Int]
@@ -249,14 +265,14 @@ words.saveAsObjectFile("/Users/anicolaspp/out_dir.txt")
 
 # Working with *PairRDD*
 
-Many tutorials (and people) talk about *PairRDD* as an special kind of *RDD*, but in *Scala* tuples are just a other type. 
+Many tutorials (and people) talk about *PairRDD* as an special kind of *RDD*, but in *Scala* tuples are just another type. 
 
 Let's create a simple *PairRDD*
 
 ```
 val pairs = sc.parallelize((1 to 1000).map(x => (x, x.toString.length)))
 
-pairs.forach(println)
+pairs.foreach(println)
 ```
 
 What about if we want all number with the same *length*?
@@ -342,10 +358,10 @@ val sorted =
     .map {case (x, y) => (y, x)}
     .sortByKey(false)
 ```
-There is *sortBy* can also be used, removing `.map {case (x, y) => (y, x)}`
+Another option is *sortBy* which removes `.map {case (x, y) => (y, x)}`
 
 ```
-al sorted = 
+val sorted = 
   linesRDD
     .flatMap(_.split(" "))
      .map(w => (w, 1))

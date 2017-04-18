@@ -59,6 +59,9 @@ object app {
           .../simple_app/target/scala-2.11/spark-demo_2.11-1.0.jar
 ```
 
+
+[The complete example](https://github.com/anicolaspp/spark-workshop/tree/master/simple_app)
+
 # Some *Best* Practices we use
 
 - build a runner with all the configuration need (log, args).
@@ -172,3 +175,5 @@ For more information how to use the *Monad Writer* look at this presentation fro
 [How to Log in Apache Spark, a Functional Apporach](https://medium.com/hacker-daily/how-to-log-in-apache-spark-a-functional-approach-e48ffbbd935b)
 
 ## Running an App
+
+[A running application](https://github.com/anicolaspp/spark-workshop/tree/master/complex_app)
