@@ -37,7 +37,7 @@ val dogs: List[Dog] = ...
 This is the *Java* way, which is valid in *Scala*
 
 ```
-val puppies = dogs.filter(dog => god.age < 2)
+val puppies = dogs.filter(dog => dog.age < 2)
 ```
 However, we could write it in a compressed expression. 
 
@@ -263,7 +263,7 @@ words.saveAsObjectFile("/Users/anicolaspp/out_dir.txt")
 
 # Working with *PairRDD*
 
-Many tutorials (and people) talk about *PairRDD* as an special kind of *RDD*, but in *Scala* tuples are just a other type. 
+Many tutorials (and people) talk about *PairRDD* as an special kind of *RDD*, but in *Scala* tuples are just another type. 
 
 Let's create a simple *PairRDD*
 
