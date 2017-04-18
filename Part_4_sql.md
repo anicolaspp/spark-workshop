@@ -133,6 +133,14 @@ airlinesDF
 	.save("codes.csv")
 ```
 
+As we know, we don't use *Spark* only in the `shell`, so we need a way to include the *data sources* also we creating *Spark* applications.
+
+We can do this by adding the corresponding dependencies to our `build.sbt` file.
+
+```
+
+```
+
 There are a lot of data sources for a lot of different data format, but we can also write our own, if we need it. 
 
 This is a detailed example about how we can write one. 
@@ -147,9 +155,15 @@ This is a detailed example about how we can write one.
 
 ### Intersting Questions
 - How many flights cancelled?
+`spark.sql("select * from flights where Cancelled=1").count`
+
 - How many flights delayed?
+`spark.sql("select * from flights where ARRIVAL_DELAY>0").count
+`
 - What is the average waiting time?
 - What is airline with more cancelled flights?
+`spark.sql("select AIRLINE, count(*) as total from flights where Cancelled=1 group by AIRLINE order by total desc").show`
+`spark.sql("select AIRLINE, count(*) as total from flights where Cancelled=1 group by AIRLINE").orderBy("total").show`
 - What is the best airline?
 - What is the two destinations with more flights cancelled between them?
 - What is the more delayed aircraft? From what airline?
