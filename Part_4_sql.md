@@ -155,15 +155,22 @@ This is a detailed example about how we can write one.
 
 ### Intersting Questions
 - How many flights cancelled?
-`spark.sql("select * from flights where Cancelled=1").count`
+```
+spark.sql("select * from flights where Cancelled=1").count
+```
 
 - How many flights delayed?
-`spark.sql("select * from flights where ARRIVAL_DELAY>0").count
-`
+```
+spark.sql("select * from flights where ARRIVAL_DELAY>0").count
+```
 - What is the average waiting time?
 - What is airline with more cancelled flights?
-`spark.sql("select AIRLINE, count(*) as total from flights where Cancelled=1 group by AIRLINE order by total desc").show`
-`spark.sql("select AIRLINE, count(*) as total from flights where Cancelled=1 group by AIRLINE").orderBy("total").show`
+```
+spark.sql("select AIRLINE, count(*) as total from flights where Cancelled=1 group by AIRLINE order by total desc").show
+```
+```
+spark.sql("select AIRLINE, count(*) as total from flights where Cancelled=1 group by AIRLINE").orderBy("total").show
+```
 - What is the best airline?
 - What is the two destinations with more flights cancelled between them?
 - What is the more delayed aircraft? From what airline?
