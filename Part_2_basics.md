@@ -25,6 +25,7 @@
 - Logic errors are (usually) translated into `types` errors.
 
 # A Note on Scala Syntax
+Go to your `$SPARK_HOME` and type `./bin/spark-shell` so you can follow along.
 
 In *Scala* we can take some shortcuts to make our programs simpler. Syntactically, Scala has some interesting options. 
 
