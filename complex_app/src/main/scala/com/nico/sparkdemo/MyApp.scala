@@ -5,10 +5,12 @@ package com.nico.sparkdemo
 
 import org.apache.spark.SparkContext
 
-class MyApp extends SparkApp {
+class MyApp extends SparkApp with Logging {
   override def name: String = "My App"
 
   override def execute(implicit sc: SparkContext): Unit = {
+
+    logger.info("loading data...")
 
     val linesRDD = sc.textFile("/Users/anicolaspp/b.txt")
 
@@ -20,6 +22,7 @@ class MyApp extends SparkApp {
         .map {case (x, y) => (y, x)}
         .sortByKey(false)
 
+    logger.info("saving data...")
     sorted.saveAsTextFile("/Users/anicolaspp/out_dir")
   }
 }
