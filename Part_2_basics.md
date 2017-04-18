@@ -270,7 +270,7 @@ Let's create a simple *PairRDD*
 ```
 val pairs = sc.parallelize((1 to 1000).map(x => (x, x.toString.length)))
 
-pairs.forach(println)
+pairs.foreach(println)
 ```
 
 What about if we want all number with the same *length*?
