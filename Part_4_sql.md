@@ -164,6 +164,9 @@ spark.sql("select * from flights where Cancelled=1").count
 spark.sql("select * from flights where ARRIVAL_DELAY>0").count
 ```
 - What is the average waiting time?
+```
+spark.sql("select avg(DEPARTURE_DELAY) from flights where Cancelled=0").show
+```
 - What is airline with more cancelled flights?
 ```
 spark.sql("select AIRLINE, count(*) as total from flights where Cancelled=1 group by AIRLINE order by total desc").show
@@ -174,6 +177,9 @@ spark.sql("select AIRLINE, count(*) as total from flights where Cancelled=1 grou
 - What is the best airline?
 - What is the two destinations with more flights cancelled between them?
 - What is the more delayed aircraft? From what airline?
+```
+spark.sql("select TAIL_NUMBER ,avg(DEPARTURE_DELAY) as Delay from flights group by TAIL_NUMBER order by Delay").show
+```
 - What is avg time that an airplane spends from landed until it gets to the terminal?
 ...
 
