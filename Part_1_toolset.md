@@ -31,7 +31,7 @@ The official build tool for `Spark` is `Maven`, but `sbt` allows a faster develo
 ./build/sbt -Pyarn -Phadoop-2.3 package
 ```
 
-After the build is complete, we should test everything went fine.
+After the build is complete, we should test that everything went fine.
 
 ```
 ./build/sbt -Pyarn -Phadoop-2.3 -Phive -Phive-thriftserver test
