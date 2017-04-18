@@ -264,14 +264,14 @@ words.saveAsObjectFile("/Users/anicolaspp/out_dir.txt")
 
 # Working with *PairRDD*
 
-Many tutorials (and people) talk about *PairRDD* as an special kind of *RDD*, but in *Scala* tuples are just a other type. 
+Many tutorials (and people) talk about *PairRDD* as an special kind of *RDD*, but in *Scala* tuples are just another type. 
 
 Let's create a simple *PairRDD*
 
 ```
 val pairs = sc.parallelize((1 to 1000).map(x => (x, x.toString.length)))
 
-pairs.forach(println)
+pairs.foreach(println)
 ```
 
 What about if we want all number with the same *length*?
