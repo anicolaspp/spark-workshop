@@ -176,7 +176,7 @@ res5: org.apache.spark.rdd.RDD[String] = MapPartitionsRDD[3] at flatMap at <cons
 Again, nothing is executed. Let's run a *foreach* to print some of them out.
 
 ```
-wordsRDD.take(20).foreach(pritnln)
+wordsRDD.take(20).foreach(println)
 ```
 
 ### Filter
