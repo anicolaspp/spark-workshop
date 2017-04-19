@@ -149,7 +149,7 @@ val linesRDD = sc.textFile("/Users/anicolaspp/b.txt")
 
 val lineLengthsRDD = linesRDD.map(line => line.length)
 
-counts.foreach(println)
+lineLengthsRDD.foreach(println)
 ```
 
 ### FlatMap
