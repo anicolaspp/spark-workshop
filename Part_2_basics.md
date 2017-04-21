@@ -278,7 +278,7 @@ pairs.foreach(println)
 What about if we want all number with the same *length*?
 
 ```
-def desiredLength(n: Int, pairs: RDD[(Int, Int)]): RDD[Int] = pairs.filter(_._2 == n).map(_._1)
+def desiredLength(n: Int, pairs: org.apache.spark.rdd.RDD[(Int, Int)]): org.apache.spark.rdd.RDD[Int] = pairs.filter(_._2 == n).map(_._1)
 ```
 
 and then we can use this function
